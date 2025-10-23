@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PENGALAMAN</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c9d6ff, #fbd2e8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .frame {
+      width: 95vw;
+      height: 94vh;
+      border: 4px solid transparent;
+      border-radius: 18px;
+      background-image: linear-gradient(white, white),
+                        linear-gradient(90deg, #a3c9ff, #ffc6e0);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      width: 100%;
+      background: linear-gradient(90deg, #a3c9ff, #ffc6e0);
+      padding: 18px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .bungkus {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      min-height: 70vh;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+
+    .arrow {
+      background: linear-gradient(135deg, #c9d6ff);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 34px;
+      color: #666;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      user-select: none;
+      z-index: 2;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    .arrow:hover {
+      background: #fbd2e8;
+      color: #333;
+    }
+
+    .arrow.kiri { left: 100px; }
+    .arrow.kanan { right: 100px; }
+
+    .kartu-wrapper {
+      display: flex;
+      gap: 60px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .kartu {
+      background: linear-gradient(180deg, #a3c9ff, #ffc6e0);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      width: 460px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s;
+      min-height: 480px;
+    }
+
+    .kartu:hover {
+      transform: translateY(-6px);
+    }
+
+    .kartu h2 {
+      font-size: 21px;
+      color: #333;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .kartu p {
+      font-size: 15px;
+      color: #555;
+      text-align: justify;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .tahun {
+      align-self: center;
+      background: linear-gradient(90deg, #a3c9ff);
+      color: white;
+      padding: 7px 22px;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #777;
+      font-size: 14px;
+      text-align: center;
+      padding-bottom: 30px;
+    }
+
+    @media (max-width: 950px) {
+      .kartu-wrapper {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .kartu {
+        width: 85%;
+      }
+
+      .arrow.kiri, .arrow.kanan {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+
+    <header>
+      <nav>
+        <a href="project.html">Home</a>
+        <a href="project2.html">Kenangan</a>
+        <a href="project4.html">Pengalaman</a>
+        <a href="project3.html">Organisasi</a>
+      </nav>
+    </header>
+
+    <div class="bungkus">
+      <div class="arrow kiri" onclick="ubahSlide(-1)">◀</div>
+      <div class="kartu-wrapper" id="tempat-kartu"></div>
+      <div class="arrow kanan" onclick="ubahSlide(1)">▶</div>
+    </div>
+
+    <footer>© Pengalaman dan Prestasi</footer>
+
+  </div>
+
+  <script>
+    const isiData = [
+      {
+        title: "Kejuaraan Lomba Debat & Jurnalistik",
+        text: "Selama masa sekolah, aku pernah meraih Juara 2 lomba debat di SMAN 2 Nganjuk tahun 2023 pengalaman yang benar-benar ngasah kemampuan berpikir kritis dan berbicara di depan umum. Di tahun yang sama, aku juga berhasil meraih Juara 2 lomba jurnalistik pramuka di RAICAB Nganjuk, yang bikin aku makin semangat mengembangkan kemampuan menulis dan bercerita. Dua pengalaman ini jadi bukti bahwa aku suka tantangan dan selalu pengen belajar hal baru.",
+        year: "2023"
+      },
+      {
+        title: "BPH Angkatan 2024",
+        text: "Dalam struktur kepengurusan BPH Angkatan 2024, saya dipercaya sebagai Wakuro Program Studi Teknik Informatika A24. Tugas saya meliputi penyampaian informasi penting kepada mahasiswa di tingkat prodi serta membantu Kuro Angkatan 2024 dalam mengatur dan mengawasi berbagai kegiatan akademik maupun non-akademik di lingkungan program studi.",
+        year: "2024"
+      },
+      {
+        title: "Penanggung Jawab Mata Kuliah",
+        text: "Sebagai penanggung jawab mata kuliah, saya dipercaya untuk mengkoordinasikan komunikasi antara dosen dan mahasiswa pada beberapa mata kuliah, antara lain Arsitektur Komputer (2024), Sistem Informasi (2025), dan Basis Data (2025) untuk kelas TIA 24. Dalam peran ini, saya memastikan kelancaran proses pembelajaran, penyampaian informasi akademik, serta membantu menjaga kedisiplinan dan keteraturan di lingkungan kelas.",
+        year: "2024-sekarang"
+      },
+      {
+        title: "Pelatihan Bahasa Inggris Intensif (Language Center, 2024)",
+        text: "Selama dua bulan, saya mengikuti program Language English di Language Center pada tahun 2024. Program ini merupakan paket intensif yang membantu saya meningkatkan kemampuan berbahasa Inggris, mulai dari speaking, listening, hingga grammar. Pengalaman ini nggak cuma nambah skill bahasa, tapi juga bikin saya lebih percaya diri berkomunikasi dalam berbagai situasi.",
+        year: "2024"
+      },
+      {
+        title: "Skill dan Pengalaman Pendukung",
+        text: "Berbagai pengalaman organisasi membuat saya terbiasa berkomunikasi di depan banyak orang dan mengoordinasi kegiatan besar, sehingga kemampuan public speaking dan komunikasi saya berkembang dengan baik. Terlibat di banyak kepanitiaan juga melatih saya dalam manajemen waktu dan kerja sama tim, terutama saat harus menyusun jadwal, membagi tugas, dan menyelesaikan deadline bersama. Selain itu, pengalaman saya sebagai sekretaris dan Koordinator Sie Kesekretariatan (KSK) membuat saya mahir menggunakan Microsoft Office untuk pembuatan proposal, laporan, serta pengarsipan dokumen. Saya juga terus mengasah kemampuan bahasa Inggris untuk mendukung komunikasi dan kegiatan akademik.",
+        year: "Skill"
+      }
+    ];
+
+    let posisi = 0;
+
+    function tampilKartu() {
+      const wadah = document.getElementById("tempat-kartu");
+      wadah.innerHTML = "";
+
+      for (let i = 0; i < 2; i++) {
+        const item = isiData[(posisi + i) % isiData.length];
+        const kotak = document.createElement("div");
+        kotak.className = "kartu";
+        kotak.innerHTML = `
+          <h2>${item.title}</h2>
+          <p>${item.text}</p>
+          <div class="tahun">${item.year}</div>
+        `;
+        wadah.appendChild(kotak);
+      }
+    }
+
+    function ubahSlide(arah) {
+      posisi = (posisi + arah + isiData.length) % isiData.length;
+      tampilKartu();
+    }
+
+    tampilKartu();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KENANGAN</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c9d6ff, #fbd2e8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px;
+    }
+
+    .bungkus {
+      width: 95%;
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(14px);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(90deg, #a3c9ff, #ffc6e0);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 27px 40px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .kiri-nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .kiri-nav h1 {
+      font-size: 20px;
+      margin: 0;
+      color: white;
+    }
+
+    .kiri-nav a {
+      text-decoration: none;
+      color: white;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .kiri-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .kiri-nav a:hover::after,
+    .kiri-nav a.active::after {
+      width: 100%;
+    }
+
+    .tautan {
+      display:flex;
+      gap:14px;
+      align-items:center;
+      border-bottom: none;
+    }
+
+    .kanan-nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .ikon {
+      background: rgba(255,255,255,0.3);
+      padding: 8px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .ikon:hover {
+      background: rgba(255,255,255,0.5);
+    }
+
+    main {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 2fr 1.3fr;
+      gap: 30px;
+    }
+
+    .foto-besar {
+      background: linear-gradient(135deg, #dbe9ff, #ffe1ef);
+      border-radius: 16px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 600;
+      color: #555;
+      position: relative;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      overflow: hidden; 
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    .panah {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 35px;
+      color: #888;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.3s;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    .panah:hover { 
+      color: #444; 
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .panah.kiri { left: 10px; }
+    .panah.kanan { right: 10px; }
+
+    .kanan {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .foto-kecil {
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .item-foto {
+      flex: 1;
+      height: 100px;
+      border-radius: 14px;
+      background: linear-gradient(160deg, #a3c9ff, #ffc6e0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .item-foto:hover {
+        transform: scale(1.05);
+    }
+    
+    .isi-slide {
+        transition: opacity 0.5s ease;
+    }
+
+    section.teks {
+      padding: 0 40px 40px; 
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .paragraf {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      line-height: 1.7;
+      font-size: 15px;
+      height: fit-content;
+    }
+    
+    .paragraf.tulisan-utama {
+        margin-top: 0;
+    }
+
+    .video {
+      background: linear-gradient(135deg, #ffc6e0, #a3c9ff);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: background-color 0.5s ease;
+      height: 100%;
+    }
+
+    footer {
+      text-align: right;
+      padding: 10px 40px 30px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    .gambar-video {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 14px 20px; }
+      main { padding: 20px; }
+      section.teks { padding: 0 20px 20px; }
+      footer { padding: 10px 20px 20px; }
+      main, section.teks {
+        grid-template-columns: 1fr;
+      }
+      .foto-kecil {
+        flex-wrap: wrap;
+      }
+      .item-foto {
+        flex: none;
+        width: calc(33.33% - 7px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bungkus">
+    <header>
+      <div class="kiri-nav">
+        <h1><a href="project.html" style="color:inherit;text-decoration:none">Home</a></h1>
+        <nav class="tautan">
+          <a href="project2.html">Kenangan</a>
+          <a href="project4.html">Pengalaman</a>
+          <a href="project3.html">Organisasi</a>
+        </nav>
+      </div>
+      <div class="kanan-nav">
+        <div class="ikon">⚙️</div>
+        <div class="ikon">👤</div>
+      </div>
+    </header>
+
+    <main>
+      <div class="foto-besar" id="tampilan-foto">
+        <div class="isi-slide" id="isi-foto"></div>
+        <span class="panah kiri" onclick="geserSlide(-1)">◀</span>
+        <span class="panah kanan" onclick="geserSlide(1)">▶</span>
+      </div>
+
+      <div class="kanan">
+        <div class="foto-kecil" id="daftar-thumbnail">
+          <div class="item-foto"></div>
+          <div class="item-foto"></div>
+          <div class="item-foto"></div>
+        </div>
+        <div class="paragraf tulisan-utama" id="teks-deskripsi"></div>
+      </div>
+    </main>
+
+    <section class="teks">
+      <div class="paragraf" id="paragraf-bawah"></div>
+      <div class="video" id="bagian-video">Video Kenangan</div>
+    </section>
+
+    <footer>20 / 20 / 2025</footer>
+  </div>
+
+  <script>
+    const dataSlide = [
+      {
+        teksUtama: "",
+        gambarUtama: "foto1.jpg",
+        warnaBg: "linear-gradient(135deg, #dbe9ff, #ffe1ef)",
+        teksKecil: ["", "", ""],
+        gambarKecil: ["foto2.jpg", "foto3.jpg", "foto4.jpg"],
+        deskripsi: "Pada usia 18 tahun, saya memulai babak baru dalam hidup sebagai mahasiswa S1 Teknik Informatika. Masa ini menjadi awal perjalanan yang penuh semangat dan tantangan baru. Tinggal jauh dari rumah dan keluarga bukanlah hal yang asing bagi saya, karena sejak SD hingga SMA saya sudah terbiasa aktif dalam berbagai kegiatan organisasi. Hal itu membuat saya lebih mandiri dan mudah beradaptasi. Meski demikian, sesekali rasa rindu terhadap rumah dan keluarga tetap hadir, menjadi pengingat akan tempat saya berasal.",
+        paragrafBawah: "Pada awal memasuki program studi Teknik Informatika, saya sempat merasa kesulitan karena tidak memiliki latar belakang yang sesuai. Namun, seiring waktu dan dengan kemauan untuk terus belajar, saya mulai memahami dan menikmati setiap prosesnya. Walaupun tugas kuliah cukup padat, saya tetap aktif dalam Himpunan Mahasiswa Teknik Informatika. Selama tiga semester terakhir, saya juga dipercaya menjadi penanggung jawab mata kuliah oleh teman-teman sekelas, pengalaman yang sangat berharga dan menambah rasa tanggung jawab saya.",
+        teksVideo: "Video Kelulusan",
+        gambarVideo: "foto5.jpg"
+      },
+      {
+        teksUtama: "",
+        gambarUtama: "26.jpg",
+        warnaBg: "linear-gradient(135deg, #dbe9ff, #ffe1ef)",
+        teksKecil: ["", "", ""],
+        gambarKecil: ["21.jpg", "23.jpg", "24.jpg"],
+        deskripsi: "Kenangan masa kecil adalah masa penuh kebahagiaan tanpa beban. Saat hari-hari diisi dengan bermain sepuasnya, menonton kartun favorit di televisi, tidur siang dengan damai, dan menikmati setiap suapan dari orang tua tercinta. Semua itu menjadi bagian terindah dalam hidup yang selalu dirindukan.",
+        paragrafBawah: "Sejak kecil, saya telah mengikuti berbagai kegiatan ekstrakurikuler seperti drumband, qiro'ah, badminton, menggambar, dan menari. Kegiatan-kegiatan tersebut membantu saya mengembangkan berbagai keterampilan serta memperluas pertemanan. Hampir setiap hari saya pulang menjelang malam karena mengikuti latihan dan les, namun semua itu terasa sangat menyenangkan. Saya sama sekali tidak merasa lelah, justru bahagia bisa belajar dan melakukan hal-hal yang saya sukai.",
+        teksVideo: "Video Kelulusan",
+        gambarVideo: "25.jpg"
+      },
+      {
+        teksUtama: "",
+        gambarUtama: "bali1.jpg",
+        warnaBg: "linear-gradient(135deg, #dbe9ff, #ffe1ef)",
+        teksKecil: ["", "", ""],
+        gambarKecil: ["bali2.jpg", "bali5.jpg", "bali4.jpg"],
+        deskripsi: "Pada kelas 11 semester 2, sekolah saya mengadakan kunjungan kampus sekaligus study tour ke Bali. Itu jadi salah satu pengalaman paling seru selama masa sekolah. Dari berangkat bareng teman-teman, nyanyi di bus, sampai ketawa bareng sepanjang jalan semuanya terasa menyenangkan. Begitu sampai di Bali, kami langsung dibuat kagum dengan suasana dan keindahan alamnya yang luar biasa. Salah satu tempat pertama yang kami kunjungi adalah desa terbersih di Bali, suasananya tenang dan tertata rapi banget. Setiap sudutnya penuh dengan tanaman hijau dan senyum ramah dari warga sekitar.",
+        paragrafBawah: "Selain itu, kami juga mengunjungi berbagai pantai indah yang jadi ikon Bali. Pemandangannya benar-benar bikin betah, apalagi saat matahari mulai terbenam. Tak ketinggalan, kami juga berkesempatan datang ke Garuda Wisnu Kencana (GWK), tempat yang megah dan penuh nilai budaya. Di sana, kami menonton pertunjukan tari Kecak secara langsung — suasananya keren banget! Melihat para penari menari dengan iringan suara “cak… cak… cak…” dari dekat bikin merinding sekaligus kagum. Rasanya waktu berjalan cepat sekali, dan sebelum sadar, study tour itu sudah berakhir, tapi kenangannya masih melekat sampai sekarang.",
+        teksVideo: "Video Kelulusan",
+        gambarVideo: "bali3.jpg"
+      },
+    ];
+
+    let urutanSekarang = 0;
+
+    const fotoUtama = document.getElementById('tampilan-foto');
+    const isiFoto = document.getElementById('isi-foto');
+    const daftarThumb = document.getElementById('daftar-thumbnail');
+    const teksDeskripsi = document.getElementById('teks-deskripsi');
+    const paragrafBawah = document.getElementById('paragraf-bawah');
+    const bagianVideo = document.getElementById('bagian-video');
+
+    function tampilSlide(nomor) {
+      if (nomor >= dataSlide.length) {
+        urutanSekarang = 0;
+      } else if (nomor < 0) {
+        urutanSekarang = dataSlide.length - 1;
+      } else {
+        urutanSekarang = nomor;
+      }
+
+      const data = dataSlide[urutanSekarang];
+      
+      isiFoto.textContent = data.teksUtama;
+      fotoUtama.style.background = `
+        url('${data.gambarUtama}'),
+        ${data.warnaBg}
+      `;
+      fotoUtama.style.backgroundSize = "cover";
+      fotoUtama.style.backgroundPosition = "center";
+      fotoUtama.style.backgroundRepeat = "no-repeat";
+
+      daftarThumb.innerHTML = '';
+      data.teksKecil.forEach((t, i) => {
+        const kotak = document.createElement('div');
+        kotak.className = 'item-foto';
+        kotak.style.backgroundImage = `url('${data.gambarKecil[i]}')`;
+        kotak.style.backgroundSize = "cover";
+        kotak.style.backgroundPosition = "center";
+        daftarThumb.appendChild(kotak);
+      });
+
+      teksDeskripsi.textContent = data.deskripsi;
+      paragrafBawah.textContent = data.paragrafBawah;
+      bagianVideo.innerHTML = `
+        <div style="
+          background:url('${data.gambarVideo}') center/cover no-repeat;
+          width:100%;
+          height:250px;
+          border-radius:16px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          position:relative;
+        "></div>
+      `;
+    }
+
+    function geserSlide(arah) {
+      tampilSlide(urutanSekarang + arah);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      tampilSlide(urutanSekarang);
+    });
+  </script>
+</body>
+</html>

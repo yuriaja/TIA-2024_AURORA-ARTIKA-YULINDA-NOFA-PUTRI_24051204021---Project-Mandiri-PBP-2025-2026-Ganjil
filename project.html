@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil Yuri</title>
+  <style>
+    :root {
+      --gap: 18px;
+      --left-w: 34vw;
+      --blue: #a3c9ff;
+      --pink: #ffc6e0;
+      --text-dark: #34364a;
+      --muted: #6b6b80;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(135deg, #f9f9ff, #fff5fb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .frame {
+      width: 95vw;
+      height: 94vh;
+      border: 4px solid transparent;
+      border-radius: 18px;
+      background-image: linear-gradient(white, white),
+                        linear-gradient(135deg, var(--blue), var(--pink));
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: linear-gradient(90deg, var(--blue), var(--pink));
+      color: #fff;
+    }
+
+    .nav-left {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-left h1 {
+      font-size: 18px;
+      margin: 0;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-weight: 600;
+      opacity: 0.9;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .icon:hover {
+      background: rgba(255,255,255,0.6);
+      transform: scale(1.05);
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      gap: var(--gap);
+      padding: 22px 28px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .kiri {
+      width: clamp(280px, var(--left-w), 420px);
+      min-width: 280px;
+      background: linear-gradient(180deg, var(--blue), var(--pink));
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(12, 15, 20, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    .foto-profil {
+      width: 100%;
+      height: auto;
+      max-height: 55vh;
+      min-height: 220px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-align: center;
+      box-shadow: inset 0 -6px 20px rgba(0,0,0,0.08);
+      backdrop-filter: blur(5px);
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+
+    .info-profil {
+      margin-top: 14px;
+    }
+
+    .nama {
+      font-size: 26px;
+      margin: 0;
+      text-align: center;
+    }
+    .deskripsi {
+      color: #fff;
+      opacity: 0.9;
+      margin-top: 6px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .footer-kiri {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    .tombol {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text-dark);
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tombol:hover { background: white; transform: translateY(-2px); }
+
+    .kanan {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      min-width: 0;
+      padding-right: 8px;
+    }
+
+    .kanan::-webkit-scrollbar { width: 10px; }
+    .kanan::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #a3c9ff, #ffc6e0);
+      border-radius: 10px;
+    }
+    .kanan::-webkit-scrollbar-track { background: #fff5fb; }
+
+    .baris-atas { display: flex; align-items: flex-start; gap: 12px; }
+
+    .judul-bagian { font-weight: 700; margin: 4px 0; color: var(--text-dark); }
+
+    .bungkus-carousel { flex: 1; background: transparent; }
+
+    .carousel {
+      display: flex;
+      gap: 14px;
+      padding: 6px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      transition: 0.4s ease;
+    }
+
+    .kartu {
+      min-width: 180px;
+      min-height: 180px;
+      background: linear-gradient(160deg, #ffffff, #fce7f9);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 6px 18px rgba(12, 15, 20, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      border: 2px solid #f2b3d3;
+    }
+
+    .kartu:hover { transform: translateY(-5px); }
+
+    .kartu .thumb {
+      width: 100%;
+      height: 100px;
+      border-radius: 10px;
+      background: none;
+      overflow: hidden;
+    }
+
+    .tentang {
+      margin-top: 18px;
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(12, 15, 20, 0.05);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .grid-tentang {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .item-tentang {
+      background: linear-gradient(160deg, #f2f6ff, #ffe8f5);
+      border-radius: 10px;
+      padding: 14px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+    }
+
+    @media (max-width: 720px) {
+      .main { flex-direction: column; padding: 12px; }
+      .kiri, .kanan { width: 100%; }
+      .grid-tentang { grid-template-columns: 1fr; }
+      .frame { width: 100vw; height: 100vh; border-radius: 0; }
+    }
+
+    .tombol-panah {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #a3c9ff, #ffc6e0);
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tombol-panah:hover {
+      transform: scale(1.1);
+      background: linear-gradient(180deg, #84bfff, #ffb5d9);
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <div class="nav-left">
+        <h1><a href="project.html" style="color:inherit;text-decoration:none"></a>Home</a></h1>
+        <nav class="nav-links">
+          <a href="project2.html"style="color:inherit;text-decoration:none">Kenangan</a>
+          <a href="project4.html" style="color:inherit;text-decoration:none">Pengalaman</a>
+          <a href="project3.html" style="color:inherit;text-decoration:none">Organisasi</a>
+        </nav>
+      </div>
+      <div class="nav-actions">
+        <div class="icon">👤</div>
+        <div class="icon">⚙️</div>
+      </div>
+    </header>
+
+    <div class="main">
+      <aside class="kiri">
+        <div>
+          <div class="foto-profil">
+            <img id="preview" src="profil.jpg" alt="Foto"style="width:100%;height:100%;object-fit:cover;object-position:center;border-radius:12px;display:block;">
+          </div>
+          <div class="info-profil">
+            <h2 class="nama">Aurora Artika Yulinda Nofa Putri</h2>
+            <p class="deskripsi">Lulusan SMA Negeri 2 Nganjuk jurusan MIPA dengan minat besar di bidang komunikasi dan public speaking. Aktif mengasah kemampuan bahasa di Language Center serta berpengalaman dalam kerja tim dan organisasi melalui Himpunan Mahasiswa Teknik Informatika.</p>
+          </div>
+        </div>
+        <div class="footer-kiri">
+          <a class="tombol" href="https://www.instagram.com/gavwgwyr?igsh=NGs0M3NpbGVoMDR5" target="_blank">Instagram</a>
+          <a class="tombol" href="https://www.linkedin.com/in/aurora-artika-yulinda-nofa-putri-444859376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+          <a class="tombol" href="https://www.facebook.com/share/1JHBw4X1Vg/" target="_blank">Facebook</a>
+          <a class="tombol" href="https://www.tiktok.com/@yur_yur1?_t=ZS-90ka4dCgEYD&_r=1" target="_blank">TikTok</a>
+        </div>
+      </aside>
+
+      <section class="kanan">
+        <div class="baris-atas">
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <div style="font-size:14px;color:var(--muted)">LAGU FAVORIT SAYA</div>
+                <div class="judul-bagian">Playlist Youtube Music</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <button class="tombol-panah" id="panahKiri">◀</button>
+                <button class="tombol-panah" id="panahKanan">▶</button>
+              </div>
+            </div>
+
+            <div class="bungkus-carousel">
+              <div class="carousel" id="daftarLagu"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tentang">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:14px;color:var(--muted)">TENTANG SAYA</div>
+              <div class="judul-bagian">Favorit & Lainnya</div>
+            </div>
+          </div>
+
+          <div class="grid-tentang">
+            <div class="item-tentang">🌸 Skin care<br><small style="color:var(--muted)">Rekomendasi terbaik</small></div>
+            <div class="item-tentang">🏝 Tempat Indah<br><small style="color:var(--muted)">Destinasi impian</small></div>
+            <div class="item-tentang">💞 Teman Dekat<br><small style="color:var(--muted)">Sahabat spesial</small></div>
+            <div class="item-tentang">🎤 Idolaku<br><small style="color:var(--muted)">Inspirasi musik</small></div>
+            <div class="item-tentang">🎬 Film Favorit<br><small style="color:var(--muted)">Yang sering ditonton</small></div>
+            <div class="item-tentang">🌈 Hal Unik<br><small style="color:var(--muted)">Kesukaan lainnya</small></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const daftarLaguData = [
+    { gambar: "Style.jpg", judul: "Style", artis: "Hearts2Hearts", link: "https://music.youtube.com/watch?v=D3tUvbqOAAY&si=e8M_PyoyphrpbOHP" },
+    { gambar: "Gabriela.jpg", judul: "Gabriela", artis: "Katseye", link: "https://music.youtube.com/watch?v=G-fCOEZnnTs&si=OY-lrAz8EuWa8Lar" },
+    { gambar: "stiky.jpg", judul: "Sticky", artis: "Kiss Of Life", link: "https://music.youtube.com/watch?v=WA97qDH6w9I&si=SJB9hMX4ocGD1CMW" },
+    { gambar: "jumbo.jpg", judul: "Selalu Ada Di Nadimu", artis: "Prince & Quinn", link: "https://music.youtube.com/watch?v=bB-dovQnBk4&si=cL5pYiIUkV0pOOB3" },
+    { gambar: "how.jpg", judul: "How Far I'll Go", artis: "Auli'i Cravalho & Disney", link: "https://music.youtube.com/watch?v=cJmvXzONYOc&si=t8ehx-iX2XrOHRJ4" },
+    { gambar: "perfect.jpg", judul: "Perfect", artis: "Ed Sheeran", link: "https://music.youtube.com/watch?v=ORrFJ63nlcA&si=pd4Tx87thn8XIjD7" },
+    { gambar: "hunrix.jpg", judul: "What It Sounds Like", artis: "HUNTR/X", link: "https://music.youtube.com/watch?v=4TZmNObLkAU&si=3YXnRbJjEug-rzPX" },
+    { gambar: "gee.jpg", judul: "Gee", artis: "Girls' Generation", link: "https://music.youtube.com/watch?v=qizghQs4K6E&si=0ouQW5V8ZGwasnbK" }
+  ];
+
+
+    const daftarLagu = document.getElementById("daftarLagu");
+    let posisiAwal = 0;
+    const jumlahTampil = 4;
+
+    function tampilkanLagu() {
+      daftarLagu.innerHTML = "";
+      const laguTampil = daftarLaguData.slice(posisiAwal, posisiAwal + jumlahTampil);
+      laguTampil.forEach(lagu => {
+        const kartu = document.createElement("div");
+        kartu.className = "kartu";
+        kartu.innerHTML = `
+          <div class="thumb">
+            ${lagu.gambar
+              ? `<img src="${lagu.gambar}" alt="${lagu.judul}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;">`
+              : lagu.ikon || "🎵"}
+          </div>
+          <p>
+            <a href="${lagu.link}" target="_blank" style="text-decoration:none;color:var(--text-dark);font-weight:600;">
+              ${lagu.judul}
+            </a><br>
+            <small style="color:var(--muted)">${lagu.artis}</small>
+          </p>
+        `;
+        daftarLagu.appendChild(kartu);
+      });
+    }
+
+
+    function laguSelanjutnya() {
+      posisiAwal = (posisiAwal + jumlahTampil) % daftarLaguData.length;
+      tampilkanLagu();
+    }
+
+    function laguSebelumnya() {
+      posisiAwal = (posisiAwal - jumlahTampil + daftarLaguData.length) % daftarLaguData.length;
+      tampilkanLagu();
+    }
+
+    document.getElementById("panahKanan").addEventListener("click", laguSelanjutnya);
+    document.getElementById("panahKiri").addEventListener("click", laguSebelumnya);
+
+    tampilkanLagu();
+  </script>
+</body>
+</html>

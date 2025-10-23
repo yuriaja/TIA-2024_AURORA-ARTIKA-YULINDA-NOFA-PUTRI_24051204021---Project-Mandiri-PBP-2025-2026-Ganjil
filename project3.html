@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORGANISASI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    :root {
+      --blue: #a3c9ff;
+      --pink: #ffc6e0;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c9d6ff, #fbd2e8);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .frame {
+      width: 95vw;
+      height: 94vh;
+      border: 4px solid transparent;
+      border-radius: 18px;
+      background-image: linear-gradient(white, white),
+                        linear-gradient(135deg, var(--blue), var(--pink));
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      width: 100%;
+      background: linear-gradient(90deg, #a3c9ff, #ffc6e0);
+      padding: 18px 50px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: white;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      flex: 1;
+      padding-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bungkus {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 90%;
+      max-width: 1300px;
+    }
+
+    .tombol {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 30px;
+      background: rgba(255,255,255,0.7);
+      color: #666;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .tombol:hover {
+      background: white;
+      color: #333;
+    }
+
+    .tombol.kiri { left: -70px; }
+    .tombol.kanan { right: -70px; }
+
+    .galeri {
+      display: flex;
+      gap: 40px;
+      overflow: hidden;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .kartu {
+      position: relative;
+      background: white;
+      border: 2px solid transparent; /* ✅ lebih tipis dari sebelumnya */
+      border-radius: 18px;
+      background-image: linear-gradient(white, white),
+                        linear-gradient(135deg, rgba(163, 201, 255, 0.8), rgba(255, 198, 224, 0.8));
+      background-origin: border-box;
+      background-clip: padding-box, border-box; /* ✅ ubah dari content-box ke padding-box biar isi gak kepotong */
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      width: 400px;
+      height: 500px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .kartu:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+
+    .kartu img {
+      width: 100%;
+      height: 260px;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .kartu h2 {
+      font-size: 19px;
+      color: #444;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .kartu p {
+      font-size: 14px;
+      color: #555;
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    footer {
+      color: #777;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .galeri {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .kartu {
+        width: 90%;
+      }
+
+      .tombol.kiri, .tombol.kanan {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="frame">
+    <header>
+      <nav>
+        <a href="project.html">Home</a>
+        <a href="project2.html">Kenangan</a>
+        <a href="project4.html">Pengalaman</a>
+        <a href="project3.html">Organisasi</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="bungkus">
+        <div class="tombol kiri" onclick="pindahGaleri(-1)">◀</div>
+        <div class="galeri" id="isi-galeri"></div>
+        <div class="tombol kanan" onclick="pindahGaleri(1)">▶</div>
+      </div>
+    </main>
+
+    <footer>© 2025 Organisasi</footer>
+  </div>
+
+  <script>
+    const galeriData = [
+      {
+        img: "pramuka.jpg",
+        title: "SMADA Scout Elite Commando",
+        text: "Sebagai Ketua Umum SMADA Scout Elite Commando, aku banyak belajar tentang kerja sama tim dan tanggung jawab. Selama masa jabatan, aku ikut ngatur dan ngawasin berbagai kegiatan pramuka wajib dan ekstra, mulai dari bikin proposal, nyusun acara, sampai melatih baris-berbaris dan public speaking buat anggota. Pokoknya seru banget bisa mimpin dan jalan bareng tim yang kompak buat bikin kegiatan pramuka jadi lebih hidup dan bermakna."
+      },
+      {
+        img: "foto5.jpg",
+        title: "HMP Teknik Informatika 2025",
+        text: "Tahun 2025 aku aktif di Departemen Dalam Negeri Himpunan Mahasiswa Teknik Informatika. Selama di sana, aku sering banget ikut ngurus acara kampus — dari WAFO, Benchmarking, X-Project, sampai Logicodix dan ISC. Serunya, aku bisa belajar banyak soal teamwork, komunikasi, dan gimana rasanya kerja bareng tim yang solid!"
+      },
+      {
+        img: "osis.jpg",
+        title: "OSIS SMAN 2 Nganjuk SPARTA 49",
+        text: "Waktu di OSIS SMAN 2 Nganjuk, aku jadi wakil ketua pelaksana acara Idul Adha. Aku bantu ngatur jalannya kegiatan, nyusun proposal, dan pastiin semuanya berjalan lancar. Seru banget bisa kerja bareng tim yang kompak dan bikin acara besar ini sukses!"
+      }
+    ];
+
+    let posisi = 0;
+
+    function tampilGaleri() {
+      const isi = document.getElementById("isi-galeri");
+      isi.innerHTML = "";
+
+      for (let i = 0; i < 3; i++) {
+        const item = galeriData[(posisi + i) % galeriData.length];
+        const kartu = document.createElement("div");
+        kartu.className = "kartu";
+        kartu.innerHTML = `
+          <img src="${item.img}" alt="${item.title}">
+          <h2>${item.title}</h2>
+          <p>${item.text}</p>
+        `;
+        isi.appendChild(kartu);
+      }
+    }
+
+    function pindahGaleri(arah) {
+      posisi = (posisi + arah + galeriData.length) % galeriData.length;
+      tampilGaleri();
+    }
+
+    tampilGaleri();
+  </script>
+</body>
+</html>
