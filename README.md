@@ -1,0 +1,2 @@
+# TIA-2024_AURORA-ARTIKA-YULINDA-NOFA-PUTRI_24051204021---Project-Mandiri-PBP-2025-2026-Ganjil
+Website Portofolio Pribadi ini dibuat untuk tugas UTS Pemrograman Berbasis Platform 2025/2026. Dibangun dengan HTML, CSS, dan JavaScript murni, menampilkan profil, pengalaman, organisasi, dan kenangan dengan desain glassmorphism bergradasi lembut serta fitur interaktif seperti carousel dan galeri foto geser.
