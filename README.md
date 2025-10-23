@@ -6,11 +6,16 @@ Secara keseluruhan, website ini terbagi menjadi empat halaman utama:
 
 Home: Menampilkan profil singkat, daftar lagu favorit interaktif dalam format carousel, serta bagian "Tentang Saya" yang menggunakan tata letak CSS Grid.
 
+![alt text](https://github.com/yuriaja/TIA-2024_AURORA-ARTIKA-YULINDA-NOFA-PUTRI_24051204021---Project-Mandiri-PBP-2025-2026-Ganjil/blob/main/tampilan%20web/web%201.jpg)
+
 Kenangan: Menyajikan galeri visual dan narasi (storytelling) yang terbagi dalam beberapa slide interaktif (Kuliah, Masa Kecil, Bali). Halaman ini menampilkan Galeri Foto Geser yang dikendalikan oleh JavaScript untuk memperbarui foto utama, thumbnail, deskripsi, dan cover video secara sinkron.
+![alt text](https://github.com/yuriaja/TIA-2024_AURORA-ARTIKA-YULINDA-NOFA-PUTRI_24051204021---Project-Mandiri-PBP-2025-2026-Ganjil/blob/main/tampilan%20web/web%202.jpg)
 
 Organisasi: Menampilkan riwayat dan peran aktif dalam berbagai organisasi (SMADA Scout Elite Commando, HMP Teknik Informatika, OSIS). Konten disajikan dalam format tiga kartu yang dapat digeser menggunakan mekanisme JavaScript carousel kustom dengan navigasi panah.
+![alt text](https://github.com/yuriaja/TIA-2024_AURORA-ARTIKA-YULINDA-NOFA-PUTRI_24051204021---Project-Mandiri-PBP-2025-2026-Ganjil/blob/main/tampilan%20web/web%204.jpg)
 
 Pengalaman: Menyajikan daftar prestasi, peran fungsional, dan pengembangan diri (Juara Debat, BPH Angkatan, Penanggung Jawab Mata Kuliah) dalam format dua kartu bergaya glassmorphism yang juga diatur melalui JavaScript slider.
+![alt text](https://github.com/yuriaja/TIA-2024_AURORA-ARTIKA-YULINDA-NOFA-PUTRI_24051204021---Project-Mandiri-PBP-2025-2026-Ganjil/blob/main/tampilan%20web/web%203.jpg)
 
 Seluruh website dibangun menggunakan HTML untuk struktur, dan CSS native digunakan secara eksklusif untuk penataan visual. Desain utama yang menonjol adalah penggunaan gradien warna lembut (biru dan merah muda) dan implementasi efek Glassmorphism (kaca buram) pada frame utama dan kartu-kartu konten, memberikan tampilan yang modern, soft, dan elegan. Fungsionalitas interaktif pada semua halaman selain Home sepenuhnya didukung oleh JavaScript murni tanpa framework eksternal.
 Link Youtube: https://youtu.be/yk2B6CwBDuM
